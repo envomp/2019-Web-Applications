@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="prax1">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.xn--4caa.eu/">
+    <meta property="og:image:type" content="image/ico">
+    <meta property="og:image:width" content="100">
+    <meta property="og:image:height" content="100">
+    <meta property="og:locale" content="et_EE"/>
+    <meta property="og:image" content="https://static.designboom.com/wp-content/uploads/2016/10/things-i-have-drawn-child-drawing-photoshop-reality-designboom-08.jpg">
+    <meta property="og:description" content="ITI0205 aine esimene praks. HTML ja server.">
+    <title>Title</title>
+    <link rel="stylesheet" href="../prax2/style/styles.css">
+    <script type="text/javascript" src="../prax2/js/functionality.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+</head>
+<body>
+
+<!--Player-->
+<!--Pass-->
+<!--Host-->
+
+<span class="custom-dropdown big">
+    <label>
+        <select class="custom-dropdown" id="players">
+            <option value="1">1 Player</option>
+            <option value="2">2 Players</option>
+        </select>
+    </label>
+</span>
+
+
+<span class="custom-dropdown big">
+    <label>
+        <select class="custom-dropdown" id="size">
+            <option value="6">6 Cards</option>
+            <option value="16">16 Cards</option>
+            <option value="26">26 Cards</option>
+            <option id="52s" style="display: none" value="52">52 Cards</option>
+        </select>
+    </label>
+</span>
+
+
+<span class="custom-dropdown big">
+    <label>
+        <select onchange="changeVisibility()" class="custom-dropdown" id="gameRule">
+            <option label="regardless of suit and colour" value="1">regardless of suit and colour</option>
+            <option label="same suit or colour" value="2">same suit or colour</option>
+        </select>
+    </label>
+</span>
+
+<button class="button" type="button" id="gameButton" onclick="startGame()">Start a new game</button>
+
+<div id="myDynamicTable"></div>
+
+<table id="score">
+    <tr>
+        <th class="click" onclick="refresh(0)">Name</th>
+        <th class="click" onclick="refresh(1)">Score</th>
+        <th class="click" onclick="refresh(2)">Time in seconds</th>
+        <th class="click" onclick="refresh(3)">Timestamp</th>
+        <th class="click" onclick="refresh(4)">Board Size</th>
+        <th class="click" onclick="refresh(5)">Game rule</th>
+    </tr>
+
+    <!--Table-->
+
+</table>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</body>
+<br><br>
+<script>
+    window.history.replaceState({}, document.title, document.URL.split('?')[0]); //Somewhat better
+
+    var chart = Highcharts.chart('container', {
+        data: {
+            table: 'score'
+        },
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Graafik'
+        },
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Units'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    this.point.y + ' ' + this.point.name.toLowerCase();
+            }
+        }
+    });
+
+</script>
+
+</html>
