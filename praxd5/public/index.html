@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic-Tac-Toe: Remastered with webSockets</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+</head>
+<body>
+
+<div class="text-center" id="box">
+    <header>
+        <h1>Play Tic Tac Toe</h1>
+    </header>
+    <div id="game-message"></div>
+    <ul id="gameBoard">
+        <li class="tic" id="0">#</li>
+        <li class="tic" id="1">#</li>
+        <li class="tic" id="2">#</li>
+        <li class="tic" id="3">#</li>
+        <li class="tic" id="4">#</li>
+        <li class="tic" id="5">#</li>
+        <li class="tic" id="6">#</li>
+        <li class="tic" id="7">#</li>
+        <li class="tic" id="8">#</li>
+    </ul>
+    <div class="clearfix"></div>
+    <footer>
+        <button id="start">Start</button>
+    </footer>
+</div>
+
+<div id="chat">
+    <div id="chat-window">
+        <div id="output">
+            <!--Display message here-->
+        </div>
+        <div id="feedback"></div>
+    </div>
+    <input type="text" id="handle" placeholder="Handle">
+    <input type="text" id="message" placeholder="Message">
+    <button id="send">Send</button>
+</div>
+
+<script src="chat.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
